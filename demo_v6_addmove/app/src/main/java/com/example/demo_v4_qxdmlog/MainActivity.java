@@ -254,7 +254,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_closeapp;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -315,6 +314,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     // 8 move
+    // code from
+    //https://www.cnblogs.com/tianzhijiexian/p/3994546.html
     private class FloatingListener implements View.OnTouchListener {
         @Override
         public boolean onTouch(View arg0, MotionEvent event) {
@@ -350,8 +351,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return mGestureDetector.onTouchEvent(event);  //此处必须返回false，否则OnClickListener获取不到监听
         }
-
-
     }
 
 
@@ -361,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onSingleTapConfirmed(MotionEvent e) {
             if (!isMove) {
 
-                Toast.makeText(getApplicationContext(), "你点击了悬浮窗", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "你点击了悬浮窗", Toast.LENGTH_SHORT).show();
 
                 System.out.println("onclick");
             }
@@ -828,24 +827,9 @@ public class MainActivity extends AppCompatActivity {
                 } else
                     Log.d("", "error value");
 
-
                 remove_view();
                 add_view();
-
-//                mWindowManager.updateViewLayout(ball,viewparams_parent);
-
-//                if( mWindowManager.IsWindowVisible(ball))
-//                {
-//
-//                }
-//                if (ball.getVisibility() == View.VISIBLE) {
-
-
-//                if (ball_status == true) {
-//                    Toast.makeText(getApplicationContext(), "view display", Toast.LENGTH_SHORT).show();
-//                }
             }
-            //(ball,viewparams_parent);
         }
     }
 
