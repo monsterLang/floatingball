@@ -950,6 +950,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_closeapp;
 
 
+    // judge long down in view
+    private long time1;
+    private long time2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1012,6 +1016,7 @@ public class MainActivity extends AppCompatActivity {
 
         mGestureDetector = new GestureDetector(this, new MyOnGestureListener());
 //        //设置监听器
+//        text_layoutview = mlayout.findViewById(R.id.layoutview_text);
 //        text_layoutview.setOnTouchListener(new FloatingListener());
 
         // 存储log显示滑动条
@@ -1050,7 +1055,9 @@ public class MainActivity extends AppCompatActivity {
                     mTouchStartY = (int)event.getRawY();
                     mStartX = (int)event.getX();
                     mStartY = (int)event.getY();
+                    time1 = System.currentTimeMillis();
                     break;
+
                 case MotionEvent.ACTION_MOVE:
                     mTouchCurrentX = (int) event.getRawX();
                     mTouchCurrentY = (int) event.getRawY();
@@ -1061,7 +1068,9 @@ public class MainActivity extends AppCompatActivity {
                     mTouchStartX = mTouchCurrentX;
                     mTouchStartY = mTouchCurrentY;
                     break;
+
                 case MotionEvent.ACTION_UP:
+                    // judge move
                     mStopX = (int)event.getX();
                     mStopY = (int)event.getY();
                     //System.out.println("|X| = "+ Math.abs(mStartX - mStopX));
@@ -1069,6 +1078,41 @@ public class MainActivity extends AppCompatActivity {
                     if(Math.abs(mStartX - mStopX) >= 1 || Math.abs(mStartY - mStopY) >= 1){
                         isMove = true;
                     }
+
+                    // no move:
+                    //          case1: long touch
+                    //          case2: start/stop record
+                    // move:  change movestatus isMove
+                    if (isMove == false){
+                        //judge long time
+                        time2 = System.currentTimeMillis();
+                        long temp_time = time2 - time1;
+                        if(temp_time > 500){
+                            // long touch event
+                            Toast.makeText(getApplicationContext(), "long time touch", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            //judge layout view change status -- start/stop recording
+                            if (mWindowManager == null) {
+                                Toast.makeText(getApplicationContext(), "no wm", Toast.LENGTH_SHORT).show();
+                            }
+
+                            if(status_layoutview == true){
+//                              Toast.makeText(getApplicationContext(), "change layoutview color", Toast.LENGTH_SHORT).show();
+
+                                if(status_layoutview_text == false) {
+                                    layoutview_on();
+                                }
+                                else if (status_layoutview_text == true){
+                                    layoutview_off();
+                                }
+//                                  mlayout.updateViewLayout(mlayout,viewparams_layout);
+                            }
+
+                        }
+                    }
+
                     break;
             }
             return mGestureDetector.onTouchEvent(event);  //此处必须返回false，否则OnClickListener获取不到监听
@@ -1554,8 +1598,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // listen for floatingtextview touch
-            mlayout.setOnClickListener(new touchlayoutview_youkaiListener());
+//            text_layoutview= mlayout.findViewById(R.id.layoutview_text);
+//            text_layoutview.setOnTouchListener(new FloatingListener());
 
+
+//            mlayout.setOnClickListener(new touchlayoutview_youkaiListener());
+//
             mlayout.setOnTouchListener(new FloatingListener());
         }
     }
