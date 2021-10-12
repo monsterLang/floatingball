@@ -194,7 +194,7 @@
 
     <EditText
         android:id="@+id/edit_shellcmd"
-        android:layout_width="314dp"
+        android:layout_width="281dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -208,5 +208,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_showsavefile"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_sendshellcmd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="sh_cmd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toEndOf="@+id/edit_shellcmd"
+        app:layout_constraintTop_toBottomOf="@+id/text_showsavefile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
