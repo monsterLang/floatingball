@@ -1849,12 +1849,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.Date;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import java.lang.Runtime;
+import java.lang.Process;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -1940,6 +1954,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_shellcmd;
     private String cmd_sendshell;
     private EditText edittext_shellcmd;
+    Runtime  runtime;
+    Process  proc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -2058,7 +2074,21 @@ public class MainActivity extends AppCompatActivity {
             else
             {
                 // send shell cmd
+//                ShellCmd a = new ShellCmd(cmd_sendshell);
+                runtime  =  Runtime.getRuntime();
+                try {
+                    proc  =  runtime.exec(cmd_sendshell);
+//        is  =  proc.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
+                    String line = null;
+                    while ((line = reader.readLine()) != null){
+                        System.out.println(line);
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
 
+                }
 
             }
 
@@ -2073,6 +2103,7 @@ public class MainActivity extends AppCompatActivity {
     // code from
     //https://www.cnblogs.com/tianzhijiexian/p/3994546.html
     private class FloatingListener implements View.OnTouchListener {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public boolean onTouch(View arg0, MotionEvent event) {
 

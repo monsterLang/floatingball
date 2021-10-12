@@ -1,6 +1,8 @@
 package com.example.demo_v7_addshell;
 
 import android.content.Context;
+import android.widget.Toast;
+
 import java.lang.Runtime;
 import java.lang.Process;
 import java.io.IOException;
@@ -24,8 +26,14 @@ public class ShellCmd {
         try {
             proc  =  runtime.exec(cmd);
 //        is  =  proc.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
+            String line = null;
+            while ((line = reader.readLine()) != null){
+                System.out.println(line);
+            }
         }
         catch (Exception e){
+            e.printStackTrace();
 
         }
 
