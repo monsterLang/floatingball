@@ -191,8 +191,8 @@ package com.example.demo_v7_addshell;
 //    private WindowManager.LayoutParams viewparams_layout;
 //    private FloatView_youkai ball;
 //
-//    private boolean ball_status;
-//    private boolean ball_status_add;
+//    private boolean status_ball;
+//    private boolean status_ball_add;
 //
 //    private Button btn_openfloatball;
 //    private Button btn_closefloatball;//closefloatballbtn
@@ -245,8 +245,8 @@ package com.example.demo_v7_addshell;
 ////            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        mlayout = (LinearLayout) inflater.inflate(R.layout.float_window_small, null);
 //
-//        ball_status = false;
-//        ball_status_add = false;
+//        status_ball = false;
+//        status_ball_add = false;
 //        status_layoutview = false;
 //        status_layoutview_text = false;
 //        //定义view位置及大小参数，不需要view提前创建。
@@ -272,12 +272,12 @@ package com.example.demo_v7_addshell;
 //    // parent 绘制圆形
 //    private void remove_view() {
 //        mWindowManager.removeView(ball);
-//        ball_status_add = false;
+//        status_ball_add = false;
 //    }
 //
 //    private void add_view() {
 //        mWindowManager.addView(ball, viewparams_parent);
-//        ball_status_add = true;
+//        status_ball_add = true;
 //    }
 //
 //    // 切换parent圆颜色
@@ -285,7 +285,7 @@ package com.example.demo_v7_addshell;
 //    private void record_on() {
 //        ball.paint.setColor(Color.GREEN);//设置颜色为绿
 ////        ball.requestLayout();
-//        ball_status = true;
+//        status_ball = true;
 //
 //        //qxdm log start record, cmd = diag xxxx
 //    }
@@ -293,7 +293,7 @@ package com.example.demo_v7_addshell;
 //    private void record_off() {
 //        ball.paint.setColor(Color.RED);//设置颜色为红
 ////        ball.requestLayout();
-//        ball_status = false;
+//        status_ball = false;
 //
 //        //qxdm log stop record and save
 //    }
@@ -722,9 +722,9 @@ package com.example.demo_v7_addshell;
 ////                ball.();
 ////                mWindowManager.updateViewLayout(ball, viewparams_parent);
 //
-//                if (ball_status == false) {
+//                if (status_ball == false) {
 //                    record_on();
-//                } else if (ball_status == true) {
+//                } else if (status_ball == true) {
 //                    record_off();
 //                } else
 //                    Log.d("", "error value");
@@ -742,7 +742,7 @@ package com.example.demo_v7_addshell;
 ////                if (ball.getVisibility() == View.VISIBLE) {
 //
 //
-////                if (ball_status == true) {
+////                if (status_ball == true) {
 ////                    Toast.makeText(getApplicationContext(), "view display", Toast.LENGTH_SHORT).show();
 ////                }
 //            }
@@ -769,7 +769,7 @@ package com.example.demo_v7_addshell;
 //            if (mWindowManager != null) {
 ////                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
 //                Log.d(TAG_MAIN, "draw ball");
-//                if (ball_status_add == false) {
+//                if (status_ball_add == false) {
 //                    add_view();
 //                }
 ////                mWindowManager.addView(ball, viewparams_parent);
@@ -805,21 +805,21 @@ package com.example.demo_v7_addshell;
 //
 //                //如果显示了view就移除，按理说不应该用这个，也可能view不显示在最前。
 ////                if(ball.getVisibility() == View.VISIBLE)
-//                if (ball_status_add == true) {
+//                if (status_ball_add == true) {
 //                    remove_view();
-//                    if (ball_status == true) {
+//                    if (status_ball == true) {
 //                        record_off();
 //                    }
 //                }
 ////                setContentView(ball);
 //            }
 //
-////            if(ball_status_add == false)
+////            if(status_ball_add == false)
 ////            {
 ////                Log.d(TAG_MAIN, "view no display");
 ////                Toast.makeText(getApplicationContext(), "view no display", Toast.LENGTH_SHORT).show();
 ////            }
-////            else if(ball_status_add == true)
+////            else if(status_ball_add == true)
 ////            {
 ////                Log.d(TAG_MAIN, "view GONE");
 ////                Toast.makeText(getApplicationContext(), "view GONE", Toast.LENGTH_SHORT).show();
@@ -833,7 +833,7 @@ package com.example.demo_v7_addshell;
 //            // TODO Auto-generated method stub
 //
 ////            if (ball.getVisibility() == View.VISIBLE)
-//            if (ball_status_add == true)
+//            if (status_ball_add == true)
 //                mWindowManager.removeView(ball);
 //            //待添加判断是否显示球，若显示则移除，若不显示，则删除ball变量
 //
@@ -890,8 +890,8 @@ package com.example.demo_v7_addshell;
 //    private FloatView_youkai ball;
 //
 //    // 2 ball status change params
-//    private boolean ball_status;
-//    private boolean ball_status_add;
+//    private boolean status_ball;
+//    private boolean status_ball_add;
 //
 //    // 3 buttons to display floatingball  ---- draw circular
 //    private Button btn_openfloatballview_youkai;
@@ -1004,8 +1004,8 @@ package com.example.demo_v7_addshell;
 ////            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        mlayout = (LinearLayout) inflater.inflate(R.layout.float_window_small, null);
 //
-//        ball_status = false;
-//        ball_status_add = false;
+//        status_ball = false;
+//        status_ball_add = false;
 //        status_layoutview = false;
 //        status_layoutview_text = false;
 //        //定义view位置及大小参数，不需要view提前创建。
@@ -1137,12 +1137,12 @@ package com.example.demo_v7_addshell;
 //    // parent 绘制圆形
 //    private void remove_view() {
 //        mWindowManager.removeView(ball);
-//        ball_status_add = false;
+//        status_ball_add = false;
 //    }
 //
 //    private void add_view() {
 //        mWindowManager.addView(ball, viewparams_parent);
-//        ball_status_add = true;
+//        status_ball_add = true;
 //    }
 //
 //    // 切换parent圆颜色
@@ -1150,7 +1150,7 @@ package com.example.demo_v7_addshell;
 //    private void record_on() {
 //        ball.paint.setColor(Color.GREEN);//设置颜色为绿
 ////        ball.requestLayout();
-//        ball_status = true;
+//        status_ball = true;
 //
 //        //qxdm log start record, cmd = diag xxxx
 //    }
@@ -1158,7 +1158,7 @@ package com.example.demo_v7_addshell;
 //    private void record_off() {
 //        ball.paint.setColor(Color.RED);//设置颜色为红
 ////        ball.requestLayout();
-//        ball_status = false;
+//        status_ball = false;
 //
 //        //qxdm log stop record and save
 //    }
@@ -1720,9 +1720,9 @@ package com.example.demo_v7_addshell;
 ////                ball.();
 ////                mWindowManager.updateViewLayout(ball, viewparams_parent);
 //
-//                if (ball_status == false) {
+//                if (status_ball == false) {
 //                    record_on();
-//                } else if (ball_status == true) {
+//                } else if (status_ball == true) {
 //                    record_off();
 //                } else
 //                    Log.d("", "error value");
@@ -1747,7 +1747,7 @@ package com.example.demo_v7_addshell;
 //            if (mWindowManager != null) {
 ////                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
 //                Log.d(TAG_MAIN, "draw ball");
-//                if (ball_status_add == false) {
+//                if (status_ball_add == false) {
 //                    add_view();
 //                }
 ////                mWindowManager.addView(ball, viewparams_parent);
@@ -1783,21 +1783,21 @@ package com.example.demo_v7_addshell;
 //
 //                //如果显示了view就移除，按理说不应该用这个，也可能view不显示在最前。
 ////                if(ball.getVisibility() == View.VISIBLE)
-//                if (ball_status_add == true) {
+//                if (status_ball_add == true) {
 //                    remove_view();
-//                    if (ball_status == true) {
+//                    if (status_ball == true) {
 //                        record_off();
 //                    }
 //                }
 ////                setContentView(ball);
 //            }
 //
-////            if(ball_status_add == false)
+////            if(status_ball_add == false)
 ////            {
 ////                Log.d(TAG_MAIN, "view no display");
 ////                Toast.makeText(getApplicationContext(), "view no display", Toast.LENGTH_SHORT).show();
 ////            }
-////            else if(ball_status_add == true)
+////            else if(status_ball_add == true)
 ////            {
 ////                Log.d(TAG_MAIN, "view GONE");
 ////                Toast.makeText(getApplicationContext(), "view GONE", Toast.LENGTH_SHORT).show();
@@ -1811,7 +1811,7 @@ package com.example.demo_v7_addshell;
 //            // TODO Auto-generated method stub
 //
 ////            if (ball.getVisibility() == View.VISIBLE)
-//            if (ball_status_add == true)
+//            if (status_ball_add == true)
 //                mWindowManager.removeView(ball);
 //            //待添加判断是否显示球，若显示则移除，若不显示，则删除ball变量
 //
@@ -1874,22 +1874,39 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG_MAIN = "MainActivity";
 
-    // 1 display view params
+    // 0 device display params
     private WindowManager mWindowManager;
+    private TextView text_width;
+    private TextView text_height;
+    private int mWidth, mHeight;   //屏幕的宽高
+
+
+    // -1 display view params
     private WindowManager.LayoutParams viewparams;
     private WindowManager.LayoutParams viewparams_parent;
     private WindowManager.LayoutParams viewparams_layout;
+
+    // 1 create service
+    private Button btn_openfloatball_service;
+    private Button btn_closefloatball_service;
+
+    // 2 close app
+    private Button btn_closeapp;
+
+    // 3 floatingball by draw
+    // class ball
     private FloatView_youkai ball;
 
-    // 2 ball status change params
-    private boolean ball_status;
-    private boolean ball_status_add;
+    // ball status change params
+    private boolean status_ball;
+    private boolean status_ball_add;
 
-    // 3 buttons to display floatingball  ---- draw circular
+    // buttons to display floatingball  ---- draw circular
     private Button btn_openfloatballview_youkai;
     private Button btn_closefloatballview_youkai;
 
-    // 4 buttons to display floatingball   ---- layout
+    // 4 floattext layout
+    // buttons to display floatingtext   ---- layout
     private Button btn_openlayoutview;
     private Button btn_closelayoutview;
     LayoutInflater inflater;
@@ -1913,7 +1930,7 @@ public class MainActivity extends AppCompatActivity {
     // send cmd func2 -- error
     private CommandExecution cmd_exec;
 
-    // 8 move layout view
+    // move layout view
     // move event minor
     GestureDetector mGestureDetector;
 
@@ -1922,41 +1939,27 @@ public class MainActivity extends AppCompatActivity {
     //开始时的坐标和结束时的坐标（相对于自身控件的坐标）
     private int mStartX,mStartY,mStopX,mStopY;
     private boolean isMove;//判断悬浮窗是否移动
-
-    StringBuffer save_file_path;
-
-    // 5 create service
-    private Button btn_openfloatball_service;
-    private Button btn_closefloatball_service;
-
-
-    // status display
-    private TextView text;
-
-    // 6 device display params
-    private TextView text_width;
-    private TextView text_height;
-    private int mWidth, mHeight;   //屏幕的宽高
-
-    // 7 close app
-    private Button btn_closeapp;
-
-
     // judge long down in view
     private long time1;
     private long time2;
 
-    // add long time display exit button
-    LayoutInflater inflater_exitbt;
-    LinearLayout mlayout_exitbt;      // floating text (layout to replace ball)
-    Button btn_ballexit;
+    // show log save path
+    StringBuffer save_file_path;
 
-    // shell cmd
+    // 5 status display
+    private TextView text;
+
+    // 6 shell cmd
     private Button btn_shellcmd;
     private String cmd_sendshell;
     private EditText edittext_shellcmd;
     Runtime  runtime;
     Process  proc;
+
+    // 7 add long time display exit button
+    LayoutInflater inflater_exitbt;
+    LinearLayout mlayout_exitbt;      // floating text (layout to replace ball)
+    Button btn_ballexit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1976,33 +1979,92 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //申请存储权限
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            int REQUEST_CODE_CONTACT = 101;
-//            String[] permissions = {
-//                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                    Manifest.permission.SYSTEM_ALERT_WINDOW
-//            };
-//            //验证是否许可权限
-//            for (String str : permissions) {
-//                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
-//                    //申请权限
-//                    this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
-//                    return;
-//                }
-//            }
-//        }
-
-        save_file_path = new StringBuffer();
-
-        //get window manager
+        // func0 ---- get window manager
         mWindowManager = (WindowManager) this.getWindowManager();
         if (mWindowManager == null)
             Toast.makeText(getApplicationContext(), "no window", Toast.LENGTH_SHORT).show();
 
+        // get device window property(width-height)
+        get_window_property();
+
+        // func-1 ---- 定义view位置及大小参数，不需要view提前创建。
+        set_viewparams();
+
+        //设置监听器
+        mGestureDetector = new GestureDetector(this, new MyOnGestureListener());
+
+        initUI();
+    }
+
+    private void initUI() {
+        // TODO Auto-generated method stub
+        // 1. button to create/stop service
+        btn_openfloatball_service = findViewById(R.id.openfloatballservicebtn);
+        btn_openfloatball_service.setOnClickListener(new openfloatballListener());
+
+        btn_closefloatball_service = findViewById(R.id.closefloatballservicebtn);
+        btn_closefloatball_service.setOnClickListener(new closefloatballListener());
+
+        // 2. button close app
+        btn_closeapp = findViewById(R.id.exitbtn);
+        btn_closeapp.setOnClickListener(new closeappListener());
+
+        // 3. button for floatingball draw circular
+        btn_openfloatballview_youkai = findViewById(R.id.openfloatballview_youkaibt);
+        btn_openfloatballview_youkai.setOnClickListener(new openfloatballview_youkaiListener());
+
+        btn_closefloatballview_youkai = findViewById(R.id.closefloatballview_youkaibt);
+        btn_closefloatballview_youkai.setOnClickListener(new closefloatballview_youkaiListener());
+
+        status_ball = false;
+        status_ball_add = false;
+
+        // 4. button for floatingtext layout
+        btn_openlayoutview = findViewById(R.id.bt_layoutview_open);
+        btn_openlayoutview.setOnClickListener(new openlayoutviewListener());
+
+        btn_closelayoutview = findViewById(R.id.bt_layoutview_close);
+        btn_closelayoutview.setOnClickListener(new closelayoutviewListener());
+
+        // 使用layout布局创建悬浮textview
+        //得到容器，通过这个inflater来获得悬浮窗控件
+        inflater = LayoutInflater.from(getApplication());
+        mlayout = (LinearLayout) inflater.inflate(R.layout.float_window_small, null);
+
+        text_layoutview = mlayout.findViewById(R.id.layoutview_text);
+
+        // 存储log显示滑动条
+        textview_savefilepath = (TextView) findViewById(R.id.text_showsavefile);
+        textview_savefilepath.setMovementMethod(ScrollingMovementMethod.getInstance());
+
+        status_layoutview = false;
+        status_layoutview_text = false;
+
+        // save cat qxdm log cmd
+        cmd_start = null;
+        cmd_stop = null;
+
+        // 5. textview for show current status
+        text = (TextView) findViewById(R.id.textView);
+        text.setText("init");
+
+        // 6. shell cmd
+        btn_shellcmd = findViewById(R.id.btn_sendshellcmd);
+        btn_shellcmd.setOnClickListener(new Listener_sendshellcmd());
+
+
+        // 7. long time click floattext show exit btn
+        inflater_exitbt = LayoutInflater.from(getApplication());
+        mlayout_exitbt = (LinearLayout) inflater_exitbt.inflate(R.layout.longtouch_exit, null);
+    }
+
+    // func0: get Width Height
+    public void get_window_property(){
+
         // display params  height*width
         DisplayMetrics display = new DisplayMetrics();
-        mWindowManager.getDefaultDisplay().getMetrics(display);
+        if (mWindowManager != null)
+            mWindowManager.getDefaultDisplay().getMetrics(display);
         if (display == null)
             Toast.makeText(getApplicationContext(), "can't get display params", Toast.LENGTH_SHORT).show();
 
@@ -2014,99 +2076,275 @@ public class MainActivity extends AppCompatActivity {
         text_width.setText("宽度 " + mWidth);
         text_height = (TextView) findViewById(R.id.HeightText);
         text_height.setText("高度 " + mHeight);
+    }
 
-        // 使用layout布局创建悬浮textview
-        //得到容器，通过这个inflater来获得悬浮窗控件
-        inflater = LayoutInflater.from(getApplication());
-//            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mlayout = (LinearLayout) inflater.inflate(R.layout.float_window_small, null);
+    // func-1: set view params
+    private void set_viewparams() {
 
-        // exit btn
-        inflater_exitbt = LayoutInflater.from(getApplication());
-        mlayout_exitbt = (LinearLayout) inflater_exitbt.inflate(R.layout.longtouch_exit, null);
+        if (viewparams == null) {
+            viewparams = new WindowManager.LayoutParams();
+            //窗口显示权限
+            viewparams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;   //android 8.0 以后使用 https://blog.csdn.net/mai763727999/article/details/78983375?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163307717816780264095751%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163307717816780264095751&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-78983375.pc_search_all_es&utm_term=TYPE_APPLICATION_OVERLAY&spm=1018.2226.3001.4187
+            //色彩信息
+            viewparams.format = PixelFormat.RGBA_8888;
+            //窗口弹出是其他区域是否可触摸
+            viewparams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+//                    |WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
 
-        ball_status = false;
-        ball_status_add = false;
-        status_layoutview = false;
-        status_layoutview_text = false;
-        //定义view位置及大小参数，不需要view提前创建。
-        set_viewparams();
+//                    | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+//                    |WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
 
-        cmd_start = null;
-        cmd_stop = null;
+//            viewparams.width = FloatWindowSmallView.viewWidth;
+//            viewparams.height = FloatWindowSmallView.viewHeight;
+            //窗口长宽，注意与view一致
+            viewparams.width = 100;
+            viewparams.height = 100;
+            //子控件，居左居上
+            viewparams.gravity = Gravity.LEFT | Gravity.TOP;
+            //起始位置      // 相对于创建的窗口位置
+            viewparams.x = mWidth - 100;
+            viewparams.y = 0;
+        }
 
-        mGestureDetector = new GestureDetector(this, new MyOnGestureListener());
-//        //设置监听器
-        text_layoutview = mlayout.findViewById(R.id.layoutview_text);
-//        text_layoutview.setOnTouchListener(new FloatingListener());
+        if (viewparams_parent == null){
+            viewparams_parent = new WindowManager.LayoutParams();
+            viewparams_parent.copyFrom(viewparams);
+            viewparams_parent.width = 100;
+            viewparams_parent.height = 100;
+            viewparams_parent.x = 0;
+            viewparams_parent.y = 0;
+        }
 
-        // 存储log显示滑动条
-        textview_savefilepath = (TextView) findViewById(R.id.text_showsavefile);
-        textview_savefilepath.setMovementMethod(ScrollingMovementMethod.getInstance());
+        if (viewparams_layout == null) {
+            viewparams_layout = new WindowManager.LayoutParams();
 
-        // shell cmd
-        btn_shellcmd = findViewById(R.id.btn_sendshellcmd);
-        btn_shellcmd.setOnClickListener(new Listener_sendshellcmd());
+//            // 方法1:从viewparams获取值
+            viewparams_layout.copyFrom(viewparams);
 
-        initUI();
-
-//        //创建view点击事件监听,监听到点击事件就刷新
-//        // mWindowManager.updateViewLayout(ball,viewparams);
-//        if (ball != null)
-//        {
-//            Toast.makeText(getApplicationContext(), "create ball listener", Toast.LENGTH_SHORT).show();
-//
-//            ball.setOnClickListener(new touchfloatballview_youkaiListener());
-//        }
+            // 方法2:直接赋值
+            //子控件，居左居上
+            viewparams_layout.gravity = Gravity.LEFT | Gravity.TOP;
+            //起始位置      // 相对于创建的窗口位置
+            viewparams_layout.x = 0;
+            viewparams_layout.y = 300;
+            //窗口长宽，注意与view一致
+            viewparams_layout.width = 200;
+            viewparams_layout.height = 200;
+        }
 
     }
 
-    // shell cmd
-    private class Listener_sendshellcmd implements OnClickListener {
+    // func1. button to create/stop service
+    public class openfloatballListener implements OnClickListener {
         @Override
         public void onClick(View arg0) {
-            edittext_shellcmd = (EditText) findViewById(R.id.edit_shellcmd);
-//            edit_shellcmd
-            cmd_sendshell = edittext_shellcmd.getText().toString();
-            if ((cmd_sendshell.equals("input shell cmd")) || cmd_sendshell.isEmpty())
-            {
-                cmd_sendshell = "please input shell cmd";
-                Toast.makeText(getApplicationContext(),   cmd_sendshell, Toast.LENGTH_SHORT).show();
+            // TODO Auto-generated method stub
 
-            }
-            else
-            {
-                // send shell cmd
-                Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
+            // display status in textview "button on"
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("button on");
 
-//                //ShellCmd a = new ShellCmd(cmd_sendshell);
-//                runtime  =  Runtime.getRuntime();
-//                try {
-//                    proc  =  runtime.exec(cmd_sendshell);
-////        is  =  proc.getInputStream();
-//                    BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
-//                    String line = null;
-//                    while ((line = reader.readLine()) != null){
-//                        System.out.println(line);
-//                    }
-//                }
-//                catch (Exception e){
-//                    e.printStackTrace();
-//
-//                }
+            Toast.makeText(getApplicationContext(), "openfloatball", Toast.LENGTH_SHORT).show();
 
-            }
+            // create floatball_service
+            start_floatball_service();
+        }
+    }
 
-//            Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
+    public class closefloatballListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            // TODO Auto-generated method stub
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("button off");
 
+            stop_floatball_service();
 
         }
     }
 
+    private void start_floatball_service() {
+        Intent intent_start_floatball_service = new Intent(MainActivity.this, FloatWindowService.class);
+        startService(intent_start_floatball_service);
+    }
 
-    // 8 move
-    // code from
-    //https://www.cnblogs.com/tianzhijiexian/p/3994546.html
+    private void stop_floatball_service() {
+        Intent intent_stop_floatball_service = new Intent(MainActivity.this, FloatWindowService.class);
+        stopService(intent_stop_floatball_service);
+    }
+
+    // 2. button close app
+    public class closeappListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            // TODO Auto-generated method stub
+
+//            if (ball.getVisibility() == View.VISIBLE)
+            if (status_ball_add == true)
+                mWindowManager.removeView(ball);
+
+            if (status_layoutview == true)
+                mWindowManager.removeView(mlayout);
+            //待添加判断是否显示球，若显示则移除，若不显示，则删除ball变量
+
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+    }
+
+    // 3. button for floatingball draw circular
+    public class touchfloatballview_youkaiListener implements View.OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            if (mWindowManager != null) {
+
+                if (status_ball == false) {
+                    record_on();
+                } else if (status_ball == true) {
+                    record_off();
+                } else
+                    Log.d("", "error value");
+
+                // updata view
+                updata_ball();
+
+            }
+        }
+    }
+
+    public class openfloatballview_youkaiListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("openfloatballview_youkai");
+            Toast.makeText(getApplicationContext(), "openfloatballview_youkai", Toast.LENGTH_SHORT).show();
+
+            if (ball == null)
+                ball = new FloatView_youkai(getApplicationContext());
+
+            if (mWindowManager != null) {
+//                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
+                Log.d(TAG_MAIN, "draw ball");
+                if (status_ball_add == false) {
+                    mWindowManager.addView(ball, viewparams_parent);
+                    status_ball_add = true;
+                }
+            }
+
+            //创建view点击事件监听,监听到点击事件就刷新
+            // mWindowManager.updateViewLayout(ball,viewparams_parent);
+            if (ball != null) {
+                Toast.makeText(getApplicationContext(), "create ball listener", Toast.LENGTH_SHORT).show();
+
+                ball.setOnClickListener(new touchfloatballview_youkaiListener());
+            }
+        }
+    }
+
+    public class closefloatballview_youkaiListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("closefloatballview_youkai");
+//            android.os.Process.killProcess(android.os.Process.myPid());
+            Toast.makeText(getApplicationContext(), "closefloatballview_youkai", Toast.LENGTH_SHORT).show();
+
+
+//            ball = new FloatView_youkai(getApplicationContext());
+
+            if (mWindowManager != null) {
+//                Toast.makeText(getApplicationContext(), "no wm", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
+                Log.d(TAG_MAIN, "draw ball");
+
+                //如果显示了view就移除，按理说不应该用这个，也可能view不显示在最前。
+//                if(ball.getVisibility() == View.VISIBLE)
+                if (status_ball_add == true) {
+
+                    if (status_ball == true) {
+                        record_off();
+                    }
+
+                    mWindowManager.removeView(ball);
+                    status_ball_add = false;
+                }
+//                setContentView(ball);
+            }
+        }
+    }
+
+    public void updata_ball(){
+        // judge if need redraw floatingball due to color maybe change
+        ball.invalidate();
+        // update display ball
+        mWindowManager.updateViewLayout(ball,viewparams_parent);
+    }
+
+    //4. button for floatingtext layout
+    public class openlayoutviewListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            // TODO Auto-generated method stub
+            // display status in textview "button on"
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("layoutview on");
+
+            Toast.makeText(getApplicationContext(), "layoutview on", Toast.LENGTH_SHORT).show();
+
+            // layout display
+            if(status_layoutview == false){
+                mWindowManager.addView(mlayout, viewparams_layout);
+                status_layoutview = true;
+            }
+            mlayout.setOnTouchListener(new FloatingListener());
+        }
+    }
+
+    public class closelayoutviewListener implements OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            // TODO Auto-generated method stub
+
+            // display status in textview "button on"
+            text = (TextView) findViewById(R.id.textView);
+            text.setText("layoutview off");
+
+//            if(mlayout.getVisibility() == View.VISIBLE)
+            if(status_layoutview == true) {
+
+                if (status_layoutview_text == true){
+                    layoutview_off();
+                }
+                mWindowManager.removeView(mlayout);
+                status_layoutview = false;
+            }
+
+            Toast.makeText(getApplicationContext(), "layoutview off", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public class touchlayoutview_youkaiListener implements View.OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+            if (mWindowManager == null) {
+                Toast.makeText(getApplicationContext(), "no wm", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(status_layoutview == true){
+//                Toast.makeText(getApplicationContext(), "change layoutview color", Toast.LENGTH_SHORT).show();
+
+                if(status_layoutview_text == false) {
+                    layoutview_on();
+                }
+                else if (status_layoutview_text == true){
+                    layoutview_off();
+                }
+            }
+        }
+    }
+
+    // move code from https://www.cnblogs.com/tianzhijiexian/p/3994546.html
     private class FloatingListener implements View.OnTouchListener {
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
@@ -2209,7 +2447,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     class MyOnGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -2223,15 +2460,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // parent 绘制圆形
-    private void remove_view() {
-        mWindowManager.removeView(ball);
-        ball_status_add = false;
-    }
+    public String getDateTimeString() {
+        Date currentDate = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(currentDate);
+        int year = (cal.get(Calendar.YEAR) + 1900) % 100;
+        int month = cal.get(Calendar.MONTH) + 1;
+        int date = cal.get(Calendar.DAY_OF_MONTH);
+        int hour = cal.get(Calendar.HOUR);
+        int minute = cal.get(Calendar.MINUTE);
+        int second = cal.get(Calendar.SECOND);
 
-    private void add_view() {
-        mWindowManager.addView(ball, viewparams_parent);
-        ball_status_add = true;
+        String str = null;
+        str = String.format("%02d%02d%02d_%02d%02d%02d", year, month, date, hour, minute, second);
+
+        return str;
     }
 
     // 切换parent圆颜色
@@ -2239,7 +2482,7 @@ public class MainActivity extends AppCompatActivity {
     private void record_on() {
         ball.paint.setColor(Color.GREEN);//设置颜色为绿
 //        ball.requestLayout();
-        ball_status = true;
+        status_ball = true;
 
         //qxdm log start record, cmd = diag xxxx
     }
@@ -2247,7 +2490,7 @@ public class MainActivity extends AppCompatActivity {
     private void record_off() {
         ball.paint.setColor(Color.RED);//设置颜色为红
 //        ball.requestLayout();
-        ball_status = false;
+        status_ball = false;
 
         //qxdm log stop record and save
     }
@@ -2268,23 +2511,6 @@ public class MainActivity extends AppCompatActivity {
         text_layoutview.setText("Record off");
         status_layoutview_text = false;
         stopRecordQxdmLog();
-    }
-
-    public  String getDateTimeString() {
-        Date currentDate = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(currentDate);
-        int year = (cal.get(Calendar.YEAR) + 1900) % 100;
-        int month = cal.get(Calendar.MONTH) + 1;
-        int date = cal.get(Calendar.DAY_OF_MONTH);
-        int hour = cal.get(Calendar.HOUR);
-        int minute = cal.get(Calendar.MINUTE);
-        int second = cal.get(Calendar.SECOND);
-
-        String str = null;
-        str = String.format("%02d%02d%02d_%02d%02d%02d", year, month, date, hour, minute, second);
-
-        return str;
     }
 
     private void startRecordQxdmLog(){
@@ -2357,7 +2583,7 @@ public class MainActivity extends AppCompatActivity {
         textview_cmd_current.setText("current_cmd : \n" + cmd_start);
 
         // 6. display save file path
-
+        save_file_path = new StringBuffer();
         save_file_path.append(tempcmd + "\n");
         textview_savefilepath = (TextView) findViewById(R.id.text_showsavefile);
         textview_savefilepath.setText(save_file_path.toString());
@@ -2494,7 +2720,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopRecordQxdmLog(){
-
         Toast.makeText(getApplicationContext(), "stop record QXDM log", Toast.LENGTH_SHORT).show();
 
         // send stop record cmd
@@ -2533,392 +2758,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    private void set_viewparams() {
-
-        if (viewparams == null) {
-            viewparams = new WindowManager.LayoutParams();
-            //窗口显示权限
-            viewparams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;   //android 8.0 以后使用 https://blog.csdn.net/mai763727999/article/details/78983375?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163307717816780264095751%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=163307717816780264095751&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-78983375.pc_search_all_es&utm_term=TYPE_APPLICATION_OVERLAY&spm=1018.2226.3001.4187
-            //色彩信息
-            viewparams.format = PixelFormat.RGBA_8888;
-            //窗口弹出是其他区域是否可触摸
-            viewparams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-//                    |WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
-
-//                    | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-//                    |WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-
-//            viewparams.width = FloatWindowSmallView.viewWidth;
-//            viewparams.height = FloatWindowSmallView.viewHeight;
-            //窗口长宽，注意与view一致
-            viewparams.width = 100;
-            viewparams.height = 100;
-            //子控件，居左居上
-            viewparams.gravity = Gravity.LEFT | Gravity.TOP;
-            //起始位置      // 相对于创建的窗口位置
-            viewparams.x = mWidth - 100;
-            viewparams.y = 0;
-        }
-
-        if (viewparams_parent == null){
-            viewparams_parent = new WindowManager.LayoutParams();
-            viewparams_parent.copyFrom(viewparams);
-            viewparams_parent.width = 100;
-            viewparams_parent.height = 100;
-            viewparams_parent.x = 0;
-            viewparams_parent.y = 0;
-        }
-
-
-        if (viewparams_layout == null) {
-            viewparams_layout = new WindowManager.LayoutParams();
-
-//            // 方法1:从viewparams获取值
-            viewparams_layout.copyFrom(viewparams);
-
-            // 方法2:直接赋值
-            //子控件，居左居上
-            viewparams_layout.gravity = Gravity.LEFT | Gravity.TOP;
-            //起始位置      // 相对于创建的窗口位置
-            viewparams_layout.x = 0;
-            viewparams_layout.y = 300;
-            //窗口长宽，注意与view一致
-            viewparams_layout.width = 200;
-            viewparams_layout.height = 200;
-        }
-
-    }
-
-    private void start_floatball_service() {
-        Intent intent_start_floatball_service = new Intent(MainActivity.this, FloatWindowService.class);
-        startService(intent_start_floatball_service);
-    }
-
-    private void stop_floatball_service() {
-        Intent intent_stop_floatball_service = new Intent(MainActivity.this, FloatWindowService.class);
-        stopService(intent_stop_floatball_service);
-    }
-
-    private void initUI() {
-        // TODO Auto-generated method stub
-        // find button to create/stop service
-        btn_openfloatball_service = findViewById(R.id.openfloatballbtn);
-        btn_openfloatball_service.setOnClickListener(new openfloatballListener());
-
-        btn_closefloatball_service = findViewById(R.id.closefloatballbtn);
-        btn_closefloatball_service.setOnClickListener(new closefloatballListener());
-
-        // button close app
-        btn_closeapp = findViewById(R.id.exitbtn);
-        btn_closeapp.setOnClickListener(new closeappListener());
-
-        // button for floatingball draw circular
-        btn_openfloatballview_youkai = findViewById(R.id.openfloatballview_youkaibt);
-        btn_openfloatballview_youkai.setOnClickListener(new openfloatballview_youkaiListener());
-
-        btn_closefloatballview_youkai = findViewById(R.id.closefloatballview_youkaibt);
-        btn_closefloatballview_youkai.setOnClickListener(new closefloatballview_youkaiListener());
-
-        // button for floatingtext layout
-        btn_openlayoutview = findViewById(R.id.bt_layoutview_open);
-        btn_openlayoutview.setOnClickListener(new openlayoutviewListener());
-
-        btn_closelayoutview = findViewById(R.id.bt_layoutview_close);
-        btn_closelayoutview.setOnClickListener(new closelayoutviewListener());
-
-        // textview for show current status
-        text = (TextView) findViewById(R.id.textView);
-        text.setText("init");
-
-
-    }
-
-    public class openlayoutviewListener implements OnClickListener {
+    // shell cmd
+    private class Listener_sendshellcmd implements OnClickListener {
         @Override
         public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-            // display status in textview "button on"
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("layoutview on");
+            edittext_shellcmd = (EditText) findViewById(R.id.edit_shellcmd);
+//            edit_shellcmd
+            cmd_sendshell = edittext_shellcmd.getText().toString();
+            if ((cmd_sendshell.equals("input shell cmd")) || cmd_sendshell.isEmpty())
+            {
+                cmd_sendshell = "please input shell cmd";
+                Toast.makeText(getApplicationContext(),   cmd_sendshell, Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(getApplicationContext(), "layoutview on", Toast.LENGTH_SHORT).show();
-
-
-            // layout textview display
-//            if(status_layoutview == false){
-//                text_layoutview= mlayout.findViewById(R.id.layoutview_text);
-//                mWindowManager.addView(text_layoutview, viewparams_layout);
-//                status_layoutview = true;
-//            }
-//            text_layoutview.setOnTouchListener(new FloatingListener());
-
-
-
-            // layout display
-            if(status_layoutview == false){
-                mWindowManager.addView(mlayout, viewparams_layout);
-                status_layoutview = true;
             }
-            mlayout.setOnTouchListener(new FloatingListener());
+            else
+            {
+                // send shell cmd
+                Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
 
-
-
-            // listen for floatingtextview touch
-//            text_layoutview= mlayout.findViewById(R.id.layoutview_text);
-//            text_layoutview.setOnTouchListener(new FloatingListener());
-
-
-//            mlayout.setOnClickListener(new touchlayoutview_youkaiListener());
+//                //ShellCmd a = new ShellCmd(cmd_sendshell);
+//                runtime  =  Runtime.getRuntime();
+//                try {
+//                    proc  =  runtime.exec(cmd_sendshell);
+////        is  =  proc.getInputStream();
+//                    BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
+//                    String line = null;
+//                    while ((line = reader.readLine()) != null){
+//                        System.out.println(line);
+//                    }
+//                }
+//                catch (Exception e){
+//                    e.printStackTrace();
 //
+//                }
 
-        }
-    }
-
-    public class closelayoutviewListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-
-            // display status in textview "button on"
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("layoutview off");
-
-//            if(mlayout.getVisibility() == View.VISIBLE)
-            if(status_layoutview == true) {
-
-                if (status_layoutview_text == true){
-//                    stopRecordQxdmLog();
-                    layoutview_off();
-                }
-                mWindowManager.removeView(mlayout);
-                status_layoutview = false;
             }
 
-            Toast.makeText(getApplicationContext(), "layoutview off", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
 
 
         }
     }
-
-    public class touchlayoutview_youkaiListener implements View.OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            if (mWindowManager == null) {
-//                Toast.makeText(getApplicationContext(), "no wm", Toast.LENGTH_SHORT).show();
-
-                return;
-            }
-
-            if(status_layoutview == true){
-//                Toast.makeText(getApplicationContext(), "change layoutview color", Toast.LENGTH_SHORT).show();
-
-//                    layoutview_on();
-                if(status_layoutview_text == false) {
-                    layoutview_on();
-//                    startRecordQxdmLog();
-                }
-                else if (status_layoutview_text == true){
-                    layoutview_off();
-//                    stopRecordQxdmLog();
-                }
-//                    mlayout.updateViewLayout(mlayout,viewparams_layout);
-            }
-            //(ball,viewparams_layout);
-        }
-
-
-    }
-
-
-    public class openfloatballListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-
-            // display status in textview "button on"
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("button on");
-
-            Toast.makeText(getApplicationContext(), "openfloatball", Toast.LENGTH_SHORT).show();
-
-            // create floatball_service
-            start_floatball_service();
-
-
-            //create floatbutton
-//            Button floatingButton = new Button(this);
-//            floatingButton.setText("button");
-//
-//            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
-//                    WindowManager.LayoutParams.WRAP_CONTENT,
-//                    WindowManager.LayoutParams.WRAP_CONTENT,
-//                    0, 0,
-//                    PixelFormat.TRANSPARENT
-//            );
-
-            //启动悬浮窗口关闭本窗口
-//            startService(intent);
-//            finish();
-        }
-    }
-
-    public class closefloatballListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("button off");
-
-            stop_floatball_service();
-
-        }
-    }
-
-
-    public class touchfloatballview_youkaiListener implements View.OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            if (mWindowManager != null) {
-//                Toast.makeText(getApplicationContext(), "change ball color", Toast.LENGTH_SHORT).show();
-//                ball.paint.setColor(Color.GREEN);//设置颜色为红
-//                ball.cx = 50;
-////                ball.cy = 50;
-//                ball.();
-//                mWindowManager.updateViewLayout(ball, viewparams_parent);
-
-                if (ball_status == false) {
-                    record_on();
-                } else if (ball_status == true) {
-                    record_off();
-                } else
-                    Log.d("", "error value");
-
-                remove_view();
-                add_view();
-            }
-        }
-    }
-
-
-    public class openfloatballview_youkaiListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("openfloatballview_youkai");
-            Toast.makeText(getApplicationContext(), "openfloatballview_youkai", Toast.LENGTH_SHORT).show();
-
-            if (ball == null)
-                ball = new FloatView_youkai(getApplicationContext());
-
-            if (mWindowManager != null) {
-//                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
-                Log.d(TAG_MAIN, "draw ball");
-                if (ball_status_add == false) {
-                    add_view();
-                }
-//                mWindowManager.addView(ball, viewparams_parent);
-//                setContentView(ball);
-            }
-
-            //创建view点击事件监听,监听到点击事件就刷新
-            // mWindowManager.updateViewLayout(ball,viewparams_parent);
-            if (ball != null) {
-                Toast.makeText(getApplicationContext(), "create ball listener", Toast.LENGTH_SHORT).show();
-
-                ball.setOnClickListener(new touchfloatballview_youkaiListener());
-            }
-        }
-    }
-
-    public class closefloatballview_youkaiListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            text = (TextView) findViewById(R.id.textView);
-            text.setText("closefloatballview_youkai");
-//            android.os.Process.killProcess(android.os.Process.myPid());
-            Toast.makeText(getApplicationContext(), "closefloatballview_youkai", Toast.LENGTH_SHORT).show();
-
-
-//            ball = new FloatView_youkai(getApplicationContext());
-
-            if (mWindowManager != null) {
-//                Toast.makeText(getApplicationContext(), "no wm", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(getApplicationContext(), "has wm", Toast.LENGTH_SHORT).show();
-                Log.d(TAG_MAIN, "draw ball");
-
-                //如果显示了view就移除，按理说不应该用这个，也可能view不显示在最前。
-//                if(ball.getVisibility() == View.VISIBLE)
-                if (ball_status_add == true) {
-                    remove_view();
-                    if (ball_status == true) {
-                        record_off();
-                    }
-                }
-//                setContentView(ball);
-            }
-
-//            if(ball_status_add == false)
-//            {
-//                Log.d(TAG_MAIN, "view no display");
-//                Toast.makeText(getApplicationContext(), "view no display", Toast.LENGTH_SHORT).show();
-//            }
-//            else if(ball_status_add == true)
-//            {
-//                Log.d(TAG_MAIN, "view GONE");
-//                Toast.makeText(getApplicationContext(), "view GONE", Toast.LENGTH_SHORT).show();
-//            }
-        }
-    }
-
-
-    public class closeappListener_layoutexitbtn_click implements View.OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-
-        }
-    }
-
-    public class closeappListener_layoutexitbtn implements View.OnTouchListener {
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        @Override
-        public boolean onTouch(View arg0, MotionEvent event) {
-
-            int action = event.getAction();
-            switch(action){
-                case MotionEvent.ACTION_DOWN:
-                    break;
-
-                case MotionEvent.ACTION_MOVE:
-                    //                Toast.makeText(getApplicationContext(), "view GONE", Toast.LENGTH_SHORT).show();
-
-                    break;
-
-                case MotionEvent.ACTION_UP:
-                    Toast.makeText(getApplicationContext(), "layoutexit_btn up", Toast.LENGTH_SHORT).show();
-
-                    break;
-            }
-            return true;  //此处必须返回false，否则OnClickListener获取不到监听
-        }
-    }
-
-    public class closeappListener implements OnClickListener {
-        @Override
-        public void onClick(View arg0) {
-            // TODO Auto-generated method stub
-
-//            if (ball.getVisibility() == View.VISIBLE)
-            if (ball_status_add == true)
-                mWindowManager.removeView(ball);
-
-            if (status_layoutview == true)
-                mWindowManager.removeView(mlayout);
-            //待添加判断是否显示球，若显示则移除，若不显示，则删除ball变量
-
-            android.os.Process.killProcess(android.os.Process.myPid());
-        }
-    }
-
+    
 }
