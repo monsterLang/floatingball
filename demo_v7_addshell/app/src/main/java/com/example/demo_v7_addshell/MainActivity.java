@@ -1949,6 +1949,7 @@ public class MainActivity extends AppCompatActivity {
     // add long time display exit button
     LayoutInflater inflater_exitbt;
     LinearLayout mlayout_exitbt;      // floating text (layout to replace ball)
+    Button btn_ballexit;
 
     // shell cmd
     private Button btn_shellcmd;
@@ -2070,29 +2071,33 @@ public class MainActivity extends AppCompatActivity {
             if ((cmd_sendshell.equals("input shell cmd")) || cmd_sendshell.isEmpty())
             {
                 cmd_sendshell = "please input shell cmd";
+                Toast.makeText(getApplicationContext(),   cmd_sendshell, Toast.LENGTH_SHORT).show();
+
             }
             else
             {
                 // send shell cmd
-//                ShellCmd a = new ShellCmd(cmd_sendshell);
-                runtime  =  Runtime.getRuntime();
-                try {
-                    proc  =  runtime.exec(cmd_sendshell);
-//        is  =  proc.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
-                    String line = null;
-                    while ((line = reader.readLine()) != null){
-                        System.out.println(line);
-                    }
-                }
-                catch (Exception e){
-                    e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
 
-                }
+//                //ShellCmd a = new ShellCmd(cmd_sendshell);
+//                runtime  =  Runtime.getRuntime();
+//                try {
+//                    proc  =  runtime.exec(cmd_sendshell);
+////        is  =  proc.getInputStream();
+//                    BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), "gbk"));
+//                    String line = null;
+//                    while ((line = reader.readLine()) != null){
+//                        System.out.println(line);
+//                    }
+//                }
+//                catch (Exception e){
+//                    e.printStackTrace();
+//
+//                }
 
             }
 
-            Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "send shell cmd\n" +  cmd_sendshell, Toast.LENGTH_SHORT).show();
 
 
         }
@@ -2152,8 +2157,26 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "long time touch", Toast.LENGTH_SHORT).show();
 
                             // add mlayout_exitbt
-                            if(mlayout_exitbt.isAttachedToWindow() == false)
-                                mWindowManager.addView(mlayout_exitbt,viewparams);
+                            if(mlayout_exitbt.isAttachedToWindow() == false) {
+                                mWindowManager.addView(mlayout_exitbt, viewparams);
+                                Toast.makeText(getApplicationContext(), "display exit button", Toast.LENGTH_SHORT).show();
+
+                                //func1: add layoutexit btn lister -- error
+                                btn_ballexit= mlayout_exitbt.findViewById(R.id.btn_exit);
+                                if (btn_ballexit != null){
+                                    Toast.makeText(getApplicationContext(), "find exit button", Toast.LENGTH_SHORT).show();
+                                    btn_ballexit.setOnClickListener(new closeappListener());
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(), "don't find exit button", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                                //add layoutexit lister
+//                                mlayout_exitbt.setOnTouchListener(new closeappListener_layoutexitbtn());
+
+//                                mlayout_exitbt.callOnClick();
+                            }
                             else
                                 mWindowManager.removeView(mlayout_exitbt);
 
@@ -2849,6 +2872,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public class closeappListener_layoutexitbtn_click implements View.OnClickListener {
+        @Override
+        public void onClick(View arg0) {
+
+        }
+    }
+
+    public class closeappListener_layoutexitbtn implements View.OnTouchListener {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public boolean onTouch(View arg0, MotionEvent event) {
+
+            int action = event.getAction();
+            switch(action){
+                case MotionEvent.ACTION_DOWN:
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    //                Toast.makeText(getApplicationContext(), "view GONE", Toast.LENGTH_SHORT).show();
+
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                    Toast.makeText(getApplicationContext(), "layoutexit_btn up", Toast.LENGTH_SHORT).show();
+
+                    break;
+            }
+            return true;  //此处必须返回false，否则OnClickListener获取不到监听
+        }
+    }
+
     public class closeappListener implements OnClickListener {
         @Override
         public void onClick(View arg0) {
@@ -2857,6 +2912,9 @@ public class MainActivity extends AppCompatActivity {
 //            if (ball.getVisibility() == View.VISIBLE)
             if (ball_status_add == true)
                 mWindowManager.removeView(ball);
+
+            if (status_layoutview == true)
+                mWindowManager.removeView(mlayout);
             //待添加判断是否显示球，若显示则移除，若不显示，则删除ball变量
 
             android.os.Process.killProcess(android.os.Process.myPid());
